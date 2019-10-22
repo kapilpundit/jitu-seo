@@ -154,8 +154,8 @@
 			<div class="container">
 				<div class="row">
                 	<div class="col-sm-12"><div id="form-messages"></div></div>
-                    <form id="payment-form" method="post" action="phpnormal/hostedhttp/HostedPaymentBuyHttp.php">
-                    <!-- <form id="payment-form" method="post" action="http://letsassist.co.in/signup/hostedhttp/HostedPaymentBuyHttp.php"> -->
+                    <!-- <form id="payment-form" method="post" action="phpnormal/hostedhttp/HostedPaymentBuyHttp.php"> -->
+                    <form id="payment-form" method="post" action="http://letsassist.co.in/signup/hostedhttp/HostedPaymentBuyHttp.php">
                         <div class="col-sm-6">
                             <input type="text" name="name" id="pname" value="" placeholder="Full Name" required>
                         </div>
