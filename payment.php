@@ -240,7 +240,8 @@
                         <input size="20" type="hidden" name="udf32" value="udf 32">
 
                         <div class="col-sm-12">
-                             <input class="submit" type="submit" value="submit" />
+                             <input id="askPassword" class="submit" type="submit" value="submit" />
+                             <!-- <input id="askPassword" class="submit" type="button" value="submit" /> -->
                         </div>
                     </form>
 				</div>
@@ -408,6 +409,79 @@
         <script src="js/color-style.js"></script>
         <!-- main js -->
         <script src="js/main.js"></script>
+
+        <style>
+        .modal {
+            /* position: absolute; */
+            top: 100px;
+            right: 100px;
+            bottom: 0;
+            left: 0;
+            z-index: 10040;
+            overflow: auto;
+            overflow-y: auto;
+        }
+        </style>
+
+        <!-- Modal -->
+        <div id="passwordModal" class="modal fade" role="dialog">
+            <div class="modal-dialog modal-sm">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Enter Password</h4>
+                </div>
+                <div class="modal-body">
+
+                <form class="form-horizontal" role="form">
+                  <div class="form-group">
+                    <!-- <label  class="col-sm-2 control-label"
+                              for="inputEmail3">Email</label> -->
+                    <div class="col-sm-12">
+                        <input type="password" class="form-control" 
+                        id="password" placeholder="Password"/>
+                    </div>
+                  </div>
+                </form>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="submitPassword" type="button" class="btn btn-primary">Submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+                </div>
+
+            </div>
+        </div>
+
+        <script>
+        $(function () {
+            $('#askPassword').click((e) => {
+                $('#passwordModal').modal("show");
+                e.preventDefault();
+            });
+
+            $('#submitPassword').click((e) => {
+                let password = $('#password').val();
+
+                if(password == '!@#$JULY?2022$#@!') {
+                    $( "#payment-form" ).submit();
+                } else {
+                    alert('Password incorrect');
+                    $('#password').val('');
+                }
+                // alert(password);
+                // $( "#payment-form" ).submit()
+            });
+
+            // $( "#payment-form" ).submit(function( event ) {
+            //     alert( "Handler for .submit() called." );
+            //     event.preventDefault();
+            // });
+        })
+        </script>
     </body>
 
 </html>
